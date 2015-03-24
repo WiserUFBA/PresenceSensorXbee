@@ -43,7 +43,7 @@ public class SensorPresenca implements Runnable{
     //thread que aplica a lógica de presença alterando o atributo status
     public void run(){
         try{
-         xbee.open(serialPort,9600);
+         xbee.open(serialPort,baudrate);
          while(true){
              cont++;
              
@@ -52,14 +52,13 @@ public class SensorPresenca implements Runnable{
             
              atual_time = System.currentTimeMillis();
              //System.out.println(atual_time - prev_time);
-             if((atual_time - prev_time < 1900) != status){
+             if((atual_time - prev_time < 1950) != status){
 
                  status=!status;
                  System.out.println(status);
                 
              }
-             else change_time = 0; 
-             // ou vai??? Não irá funciona se o Xbee.getResponse não for THREAD!
+            
 
          }   
          //xbee.close();

@@ -21,11 +21,11 @@ public class SensorXbee {
        
         s = new SensorPresenca(serialPort,baudrate);
         
-         try {
+         /*try {
                 Thread.sleep(10000);                 //1000 milliseconds is one second.
             } catch(InterruptedException ex) {
                 Thread.currentThread().interrupt();
-            }
+            }*/
         
         t1 =  new Thread(s);
         t1.start();
